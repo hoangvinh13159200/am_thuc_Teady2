@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/loader %>
+    <header>
+      <% include partials/header %>
+    </header>
+    <div class="tt-breadcrumb">
+      <div class="container">
+        <ul>
+          <li><a href="/">Trang chủ</a></li>
+          <li>Tài khoản</li>
+        </ul>
+      </div>
+    </div>
+    <div id="tt-pageContent">
+      <div class="container-indent">
+        <div class="container container-fluid-custom-mobile-padding">
+          <h1 class="tt-title-subpages noborder">Tài khoản</h1>
+          <div class="tt-shopping-layout">
+            <h2 class="tt-title-border">Tài khoản của tôi</h2>
+            <div class="tt-wrapper">
+              <h3 class="tt-title">Lịch sử đặt hàng</h3>
+              <%if (messageSucc != "undefined") { %>
+              <div
+                class="error"
+                style="background-color: #ffffff; font-weight: bold; color :rgb(0,255,127)"
+              >
+                <%= messageSucc %>
+              </div>
+              <% } %>
+              <%if (messageError != "undefined") { %>
+                <div
+                  class="error"
+                  style="background-color: #ffffff; font-weight: bold; color :rgb(255,0,0)"
+                >
+                  <%= messageError %>
+                </div>
+                <% } %>
+              <div class="tt-table-responsive">
+                <table class="tt-table-shop-01">
+                  <thead>
+                    <tr>
+                      <th>Đơn hàng</th>
+                      <th>Ngày</th>
+                      <th>Địa chỉ</th>
+                      <th>SĐT</th>
+                      <th>Tổng</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% order.forEach(function(o){ %>
+                    <tr>
+                      <td><a href="javascript:void(0)">#<%= o._id %></a></td>
+                      <td><%= o.date %></td>
+                      <td><%= o.address %></td>
+                      <td>
+                        <%= o.phoneNumber %>
+                      </td>
+                      <td>
+                        <%= o.cart.totalPrice %>.000 VNĐ cho <%= o.cart.totalQty %> sản
+                        phẩm
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tt-wrapper">
+              <h3 class="tt-title">Thông tin tài khoản</h3>
+              <div class="tt-table-responsive">
+                <table class="tt-table-shop-02">
+                  <tbody>
+                    <tr>
+                      <td>Tên:</td>
+                      <td><%= user.firstName %> <%= user.lastName %></td>
+                    </tr>
+                    <tr>
+                      <td>E-MAIL:</td>
+                      <td><%= user.email %></td>
+                    </tr>
+                    <tr>
+                      <td>Địa chỉ:</td>
+                      <td>
+                        <%= user.address %>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Số điện thoại:</td>
+                      <td><%= user.phoneNumber %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <a href="/account-change-info" class="btn btn-border"
+                >Thay đổi thông tin</a
+              >
+            </div>
+            <a href="/change-password" class="btn btn-border">Đổi mật khẩu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <% include partials/footer %>
+    </footer>
+    <a href="#" class="tt-back-to-top">BACK TO TOP</a>
+    <!-- Partials -->
+    <% include partials/modal-addtocartproduct %> <% include
+    partials/modal-quickviewmodal %> <% include partials/modal-videoproduct %>
+    <% include partials/modal-subscribegood %> <% include
+    partials/modal-newsletter %> <% include partials/script %>
+  </body>
+</html>

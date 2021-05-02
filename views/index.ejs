@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+	<% include partials/head %>
+<body>
+<% include partials/loader %>
+<% include partials/popup %>
+<header>
+	<% include partials/header %>
+</header>
+<div id="tt-pageContent">
+	<div class="container-indent nomargin">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="slider-revolution revolution-default">
+					<div class="tp-banner-container">
+						<div class="tp-banner revolution">
+							<ul>
+								<li data-thumb="images/slides/01/a.png" data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
+									<img src="/images/slides/01/a.png"  alt="slide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"  >
+									<div class="tp-caption tp-caption1 lft stb"
+										data-x="center"
+										data-y="center"
+										data-hoffset="0"
+										data-voffset="0"
+										data-speed="600"
+										data-start="900"
+										data-easing="Power4.easeOut"
+										data-endeasing="Power4.easeIn">
+									</div>
+								</li>
+								<li data-thumb="images/slides/01/b.png" data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
+									<img src="/images/slides/01/b.png"  alt="slide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" >
+									<div class="tp-caption tp-caption1 lft stb"
+										data-x="center"
+										data-y="center"
+										data-hoffset="0"
+										data-voffset="0"
+										data-speed="600"
+										data-start="900"
+										data-easing="Power4.easeOut"
+										data-endeasing="Power4.easeIn">
+										<!-- <div class="tp-caption1-wd-1 tt-white-color">Website</div>
+										<div class="tp-caption1-wd-2 tt-white-color">Cửa hàng</div>
+										<div class="tp-caption1-wd-3 tt-white-color">Được xây dựng với express.js và ejs</div>
+										<div class="tp-caption1-wd-4"><a href="/products" target="_blank" class="btn btn-xl" data-text="Shop Now!">Mua sắm ngay!</a></div> -->
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent0">
+		<div class="container-fluid">
+			<div class="row tt-layout-promo-box">
+				<div class="col-sm-12 col-md-6">
+					<div class="row">
+						<div class="col-sm-6">
+							<a href="/products" class="tt-promo-box tt-one-child hover-type-2">
+								<img src="/images/loader.svg" data-src="/images/promo/a/x.jpg" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">GIẢM GIÁ</div>
+									</div>
+								</div>
+							</a>
+							<a href="/products" class="tt-promo-box tt-one-child hover-type-2">
+								<img src="/images/loader.svg" data-src="/images/promo/a/vv.jfif" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">MỚI</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-6">
+							<a href="/products" class="tt-promo-box tt-one-child hover-type-2">
+								<img src="/images/loader.svg" data-src="/images/promo/a/qq.jpg" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">Đồ ăn Trung Quốc</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<div class="row">
+						<div class="col-sm-6">
+							<a href="/products" class="tt-promo-box tt-one-child hover-type-2">
+								<img src="/images/loader.svg" data-src="/images/promo/a/hq.jpg" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">Đồ ăn Hàn Quốc</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-6">
+							<a href="/products" class="tt-promo-box tt-one-child hover-type-2">
+								<img src="/images/loader.svg" data-src="/images/promo/a/12.png" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">Đồ ăn Nhật Bản</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-12">
+							<a href="/products" class="tt-promo-box tt-one-child">
+								<img src="/images/loader.svg" data-src="/images/promo/a/23.jpg" alt="">
+								<div class="tt-description">
+									<div class="tt-description-wrapper">
+										<div class="tt-background"></div>
+										<div class="tt-title-small">HandMake</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container container-fluid-custom-mobile-padding">
+			<div class="tt-block-title">
+				<h1 class="tt-title">THỊNH HÀNH</h1>
+				<div class="tt-description">CÁC SẢN PHẨM ĐƯỢC XEM NHIỀU NHẤT TUẦN</div>
+			</div>
+			<div class="row tt-layout-product-item">
+				<% trendings.forEach(function(prod) { %>
+
+					
+
+					<div class="col-6 col-md-4 col-lg-3">
+						<div class="tt-product thumbprod-center">
+							<div class="tt-image-box">
+								
+								<a href="/product/<%= prod._id %>">
+									<span class="tt-img"><img src="/images/product//<%= prod.images[0] %>" data-src="/images/product//<%= prod.images[0] %>" alt="" class="loaded" data-was-processed="true"></span>
+									<span class="tt-img-roll-over"><img src="/images/product//<%= prod.images[1] %>" data-src="/images/product//<%= prod.images[1] %>" alt="" class="loaded" data-was-processed="true"></span>
+								</a>
+							</div>
+							<div class="tt-description">
+								<div class="tt-row">
+									<ul class="tt-add-info">
+										<li><a href="#"><%= prod.productType.sub %></a></li>
+									</ul>
+									<div class="tt-rating">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+									</div>
+								</div>
+								<h2 class="tt-title"><a href="product/<%= prod._id %>"><%= prod.name %></a></h2>
+								<div class="tt-price">
+									<%= prod.price %>.000 VNĐ
+								</div>
+								<div class="tt-product-inside-hover" >
+									<div class="tt-row-btn">
+										<button class="tt-btn-addtocart thumbprod-button-bg add-cart" data-id="<%= prod._id %>" data-toggle="modal" data-target="#modalAddToCartProduct<%= prod._id %>">THÊM VÀO GIỎ HÀNG</button>
+									</div>
+			
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+					<div
+  						class="modal fade"
+  						id="modalAddToCartProduct<%= prod._id %>"
+  						tabindex="-1"
+  						role="dialog"
+  						aria-label="myModalLabel"
+  						aria-hidden="true"
+					>
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+		  aria-hidden="true"
+		  
+        >
+          <span class="icon icon-clear"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tt-modal-addtocart mobile">
+          <div class="tt-modal-messages">
+            <i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+          </div>
+          <button class="btn-link btn-close-popup" data-dismiss="modal">Tiếp tục mua sắm</button>
+          <a href="/shopping_cart" class="btn-link">XEM GIỎ HÀNG</a>
+          <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+			<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+			<% }else if(typeof(user) == 'undefined'){ %>
+				<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+				
+				<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+					<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+					<% } %>
+        </div>
+        <div class="tt-modal-addtocart desctope">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="tt-modal-messages">
+                <i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+              </div>
+              <div class="tt-modal-product">
+                <div class="tt-img">
+                  <img
+                    src="/images/loader.svg"
+                    data-src="/images/product//<%= prod.images[0] %>"
+                    alt=""
+                  />
+                </div>
+                <h2 class="tt-title">
+                  <a href="/product/<%= prod.name %>"><%= prod.name %></a>
+                </h2>
+
+                <div class="tt-qty">QTY: <span>1</span></div>
+              </div>
+              <div class="tt-product-total">
+                <div class="tt-total">
+                  TOTAL:
+                  <span class="tt-price"><%= prod.price %>.000 VNĐ</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              
+			  <a href="#" class="btn btn-border btn-close-popup" data-dismiss="modal"
+			  
+                >Tiếp tục mua sắm</a
+              >
+              <a href="/shopping_cart" class="btn btn-border">Xem giỏ hàng</a>
+              <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+				<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+				<% }else if(typeof(user) == 'undefined'){ %>
+					<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+					
+					<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+						<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+						<% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+					<% }); %>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container-fluid-custom">
+			<div class="row tt-layout-promo-box">
+				<div class="col-sm-6 col-md-4">
+					<a href="/products" class="tt-promo-box">
+						<img src="/images/loader.svg" data-src="/images/promo/a/vv.jfif" alt="">
+						<div class="tt-description">
+							<div class="tt-description-wrapper">
+								<div class="tt-background"></div>
+								<div class="tt-title-small">Đồ ăn vặt mới</div>
+								<div class="tt-title-large">Ngon tuyệt đến từng dư vị <span class="tt-base-color"></span></div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<a href="/products" class="tt-promo-box">
+						<img src="/images/loader.svg" data-src="/images/promo/a/qqa.jfif" alt="">
+						<div class="tt-description">
+							<div class="tt-description-wrapper">
+								<div class="tt-background"></div>
+								<div class="tt-title-small">Đồ ăn siêu cay <span class="tt-base-color">2021</span></div>
+								<div class="tt-title-large">HÀNG MỚI</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<a href="/products" class="tt-promo-box">
+						<img src="/images/loader.svg" data-src="/images/promo/a/ts.jpg" alt="">
+						<div class="tt-description">
+							<div class="tt-background"></div>
+							<div class="tt-description-wrapper">
+								<div class="tt-background"></div>
+								<div class="tt-title-small">Bộ sưu tập</div>
+								<div class="tt-title-large"><span class="tt-base-color">Lẩu Tự Sôi</span></div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container container-fluid-custom-mobile-padding">
+			<div class="tt-block-title">
+				<h2 class="tt-title">BÁN CHẠY NHẤT</h2>
+				<div class="tt-description">TOP NHỮNG SẢN PHẨM BÁN CHẠY NHẤT TUẦN QUA</div>
+			</div>
+			<div class="row tt-layout-product-item">
+				<% hots.forEach(function(prod) { %>
+
+					
+
+					<div class="col-6 col-md-4 col-lg-3">
+						<div class="tt-product thumbprod-center">
+							<div class="tt-image-box">
+								
+								<a href="/product/<%= prod._id %>">
+									<span class="tt-img"><img src="/images/product//<%= prod.images[0] %>" data-src="/images/product//<%= prod.images[0] %>" alt="" class="loaded" data-was-processed="true"></span>
+									<span class="tt-img-roll-over"><img src="/images/product//<%= prod.images[1] %>" data-src="/images/product//<%= prod.images[1] %>" alt="" class="loaded" data-was-processed="true"></span>
+								</a>
+							</div>
+							<div class="tt-description">
+								<div class="tt-row">
+									<ul class="tt-add-info">
+										<li><a href="#"><%= prod.productType.sub %></a></li>
+									</ul>
+									<div class="tt-rating">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+									</div>
+								</div>
+								<h2 class="tt-title"><a href="product/<%= prod._id %>"><%= prod.name %></a></h2>
+								<div class="tt-price">
+									<%= prod.price %>.000 VNĐ
+								</div>
+								<div class="tt-product-inside-hover" >
+									<div class="tt-row-btn">
+										<button class="tt-btn-addtocart thumbprod-button-bg add-cart" data-id="<%= prod._id %>" data-toggle="modal" data-target="#modalAddToCartProduct<%= prod._id %>">THÊM VÀO GIỎ HÀNG</button>
+									</div>
+			
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+					<div
+  						class="modal fade"
+  						id="modalAddToCartProduct<%= prod._id %>"
+  						tabindex="-1"
+  						role="dialog"
+  						aria-label="myModalLabel"
+  						aria-hidden="true"
+					>
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+		  aria-hidden="true"
+		  
+        >
+          <span class="icon icon-clear"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tt-modal-addtocart mobile">
+          <div class="tt-modal-messages">
+            <i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+          </div>
+          <button class="btn-link btn-close-popup" data-dismiss="modal">Tiếp tục mua sắm</button>
+          <a href="/shopping_cart" class="btn-link">XEM GIỎ HÀNG</a>
+          <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+			<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+			<% }else if(typeof(user) == 'undefined'){ %>
+				<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+				
+				<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+					<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+					<% } %>
+        </div>
+        <div class="tt-modal-addtocart desctope">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="tt-modal-messages">
+                <i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+              </div>
+              <div class="tt-modal-product">
+                <div class="tt-img">
+                  <img
+                    src="/images/loader.svg"
+                    data-src="/images/product//<%= prod.images[0] %>"
+                    alt=""
+                  />
+                </div>
+                <h2 class="tt-title">
+                  <a href="/product/<%= prod.name %>"><%= prod.name %></a>
+                </h2>
+
+                <div class="tt-qty">QTY: <span>1</span></div>
+              </div>
+              <div class="tt-product-total">
+                <div class="tt-total">
+                  TOTAL:
+                  <span class="tt-price"><%= prod.price %>.000 VNĐ</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              
+			  <a href="#" class="btn btn-border btn-close-popup" data-dismiss="modal"
+			  
+                >Tiếp tục mua sắm</a
+              >
+              <a href="/shopping_cart" class="btn btn-border">Xem giỏ hàng</a>
+              <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+				<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+				<% }else if(typeof(user) == 'undefined'){ %>
+					<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+					
+					<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+						<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+						<% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+					<% }); %>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container">
+			<div class="row tt-services-listing">
+				<div class="col-xs-12 col-md-6 col-lg-4">
+					<a href="#" class="tt-services-block">
+						<div class="tt-col-icon">
+							<i class="icon-f-48"></i>
+						</div>
+						<div class="tt-col-description">
+							<h4 class="tt-title">Vận chuyển miễn phí</h4>
+							<p>Vận chuyển miễn phí vơí mọi đơn hàng trên 1.000.000 VND</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-4">
+					<a href="#" class="tt-services-block">
+						<div class="tt-col-icon">
+							<i class="icon-f-35"></i>
+						</div>
+						<div class="tt-col-description">
+							<h4 class="tt-title">Hỗ trợ 24/7</h4>
+							<p>Liên lạc 24/7 Liên lạc 24/7 Liên lạc 24/7</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-xs-12 col-md-6 col-lg-4">
+					<a href="#" class="tt-services-block">
+						<div class="tt-col-icon">
+							<i class="icon-e-09"></i>
+						</div>
+						<div class="tt-col-description">
+							<h4 class="tt-title">Có thể hoàn trả nếu sản phẩm lỗi, không đúng với hình ảnh</h4>
+							<p>Hoàn trả đơn giản, dễ dàng.</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+		<% include partials/footer %>
+</footer>
+<a href="#" class="tt-back-to-top">BACK TO TOP</a>
+<% include partials/modal-addtocartproduct %>
+<% include partials/modal-quickviewmodal %>
+<% include partials/modal-videoproduct %>
+<% include partials/modal-subscribegood %>
+
+<% include partials/script %>
+
+
+
+</body>
+</html>

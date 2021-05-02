@@ -1,0 +1,282 @@
+	<!-- tt-mobile menu -->
+	<nav class="panel-menu mobile-main-menu">
+		<ul>
+			<li>
+				<a href="/">Trang chủ</a>
+				<ul>
+					<li>
+						<a href="/">HOME STYLES</a>
+						
+					</li>
+					<li>
+						<a href="/">HOME STYLES</a>
+						
+					</li>
+					<li>
+						<a href="/">HOME SKINS <span class="tt-badge tt-sale">HOT</span></a>
+						
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="/products">Cửa hàng</a>
+				
+			</li>
+			
+		</ul>
+		<div class="mm-navbtn-names">
+			<div class="mm-closebtn">Close</div>
+			<div class="mm-backbtn">Back</div>
+		</div>
+	</nav>
+	<!-- tt-mobile-header -->
+	<div class="tt-mobile-header">
+		<div class="container-fluid">
+			<div class="tt-header-row">
+				<div class="tt-mobile-parent-menu">
+					<div class="tt-menu-toggle">
+						<i class="icon-03"></i>
+					</div>
+				</div>
+				<!-- search -->
+				<div class="tt-mobile-parent-search tt-parent-box"></div>
+				<!-- /search -->
+				<!-- cart -->
+				<div class="tt-mobile-parent-cart tt-parent-box"></div>
+				<!-- /cart -->
+				<!-- account -->
+				<div class="tt-mobile-parent-account tt-parent-box"></div>
+				<!-- /account -->
+				<!-- currency -->
+				<div class="tt-mobile-parent-multi tt-parent-box"></div>
+				<!-- /currency -->
+			</div>
+		</div>
+		<div class="container-fluid tt-top-line">
+			<div class="row">
+				<div class="tt-logo-container">
+					<!-- mobile logo -->
+					<a class="tt-logo tt-logo-alignment" href="/"><img src="/images/custom/logo.png" alt=""></a>
+					<!-- /mobile logo -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- tt-desktop-header -->
+	<div class="tt-desktop-header">
+		<div class="container">
+			<div class="tt-header-holder">
+				<div class="tt-col-obj tt-obj-logo">
+					<!-- logo -->
+					<a class="tt-logo tt-logo-alignment" href="/"><img src="/images/custom/logo.png" alt=""></a>
+					<!-- /logo -->
+				</div>
+				<div class="tt-col-obj tt-obj-menu">
+					<!-- tt-menu -->
+					<div class="tt-desctop-parent-menu tt-parent-box">
+						<div class="tt-desctop-menu">
+							<nav>
+								<ul>
+									<li class="dropdown tt-megamenu-col-02 selected">
+										<a href="/">Trang chủ</a>
+										
+									</li>
+									<li class="dropdown megamenu">
+										<a href="/products">Cửa hàng</a>
+									</li>
+									
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<!-- /tt-menu -->
+				</div>
+				<div class="tt-col-obj tt-obj-options obj-move-right">
+					<!-- tt-search -->
+					<div class="tt-desctop-parent-search tt-parent-box">
+						<div class="tt-search tt-dropdown-obj">
+							<button class="tt-dropdown-toggle" data-tooltip="Search" data-tposition="bottom">
+								<i class="icon-f-85"></i>
+							</button>
+							<div class="tt-dropdown-menu">
+								<div class="container">
+									<form method="GET" action="/search">
+										<div class="tt-col">
+											<input type="text" class="tt-search-input" placeholder="Tìm Kiếm Sản Phẩm..." name="searchText">
+											
+											<button class="tt-btn-search" type="submit"></button>
+										
+										</div>
+										<div class="tt-col">
+											<button class="tt-btn-close icon-g-80"></button>
+										</div>
+										<div class="tt-info-text">
+											Bạn đang tìm kiếm gì?
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /tt-search -->
+					<!-- tt-cart -->
+					<div class="tt-desctop-parent-cart tt-parent-box">
+						<div class="tt-cart tt-dropdown-obj box-cart" data-tooltip="Cart" data-tposition="bottom" >
+							<button class="tt-dropdown-toggle">
+								<i class="icon-f-39"></i>
+								<span class="tt-badge-cart" ><%= session.cart.numItems%></span>
+							</button>
+							<div class="tt-dropdown-menu">
+								<div class="tt-mobile-add">
+									<h6 class="tt-title">Giỏ hàng</h6>
+									<button class="tt-close">Đóng</button>
+								</div>
+								<div class="tt-dropdown-inner">
+									<div class="tt-cart-layout">
+										<!-- layout emty cart -->
+										<!-- <a href="/empty-cart.html" class="tt-cart-empty">
+											<i class="icon-f-39"></i>
+											<p>No Products in the Cart</p>
+										</a> -->
+										<div class="tt-cart-content" >
+											
+											<div class="tt-cart-list">
+												<% if(session.cart.numItems == 0){ %>
+													<div class="tt-item">Không có sản phẩm trong giỏ</div>
+													<% } %>
+												<% if(cartProduct != null){
+													var i = 0;
+													cartProduct.forEach(function(item){
+													if(i == 3){
+														return;
+													}
+													%>
+												<div class="tt-item">
+													
+													
+													<a href="/product/<%= item.item._id %>">
+														<div class="tt-item-img">
+															<img src="/images/product/<%= item.images %>" data-src="/images/product/<%= item.images %>" alt="">
+														</div>
+														<div class="tt-item-descriptions">
+															<h2 class="tt-title"><%= item.item.name %></h2>
+															
+															<div class="tt-quantity"><%= item.qty %> X</div> <div class="tt-price"><%= item.item.price %>.000 VNĐ</div>
+														</div>
+													</a>
+													
+													
+												</div>
+												<% i++;})
+												if(session.cart.numItems > 3){
+												%>
+												<h6><center><a href="/shopping_cart">...</a></center></h6>
+												<% }} %>
+												
+											</div>
+											<div class="tt-cart-total-row">
+												<div class="tt-cart-total-title">Tổng tiền:</div>
+												<div class="tt-cart-total-price"><%= session.cart.totalPrice %>.000 VNĐ</div>
+											</div>
+											<div class="tt-cart-btn">
+												<% if(session.cart.numItems != 0){ %>
+													<div class="tt-item">
+													<%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+													<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+													<% }else if(typeof(user) == 'undefined'){ %>
+														<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+														
+														<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+															<a href="/add-order" class="btn">Thanh toán</a>
+															<% } %>
+												</div>
+													<% } %>
+												
+												<div class="tt-item">
+													<a href="/shopping_cart" class="btn-link-02 tt-hidden-mobile">Xem giỏ hàng</a>
+													<a href="/shopping_cart" class="btn btn-border tt-hidden-desctope">Xem giỏ hàng</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /tt-cart -->
+					<!-- tt-account -->
+					<div class="tt-desctop-parent-account tt-parent-box">
+						<div class="tt-account tt-dropdown-obj">
+							<button class="tt-dropdown-toggle"  data-tooltip="Tài khoản của tôi" data-tposition="bottom"><i class="icon-f-94"></i></button>
+							<div class="tt-dropdown-menu">
+								<div class="tt-mobile-add">
+									<button class="tt-close">Close</button>
+								</div>
+								<div class="tt-dropdown-inner">
+									<ul>
+											<%if (typeof(user) !== 'undefined') { %>
+												<li>Xin chào, <%= user.username %></a></li>
+												<li><a href="/account"><i class="icon-f-94"></i>Tài khoản</a></li>
+												<% if(user.isAuthenticated) {%>
+												<li><a href="/shopping_cart"><i class="icon-f-68"></i>Thanh toán</a></li>
+												<% } %>
+												<!-- <% if(!user.isAuthenticated) {%>
+													<li><a href="/verify-email"><i class="icon-f-68"></i>Xác thực email</a></li>
+												<% }} %> -->
+									    
+										
+										
+										<%if (typeof(user) !== 'undefined') { %>
+											<li><a href="/logout"><i class="icon-f-77"></i>Đăng xuất</a></li>
+											<% } %>
+
+											<%if (typeof(user) === 'undefined') { %>
+												<li><a href="/login"><i class="icon-f-76"></i>Đăng nhập</a></li>
+									    
+									    <li><a href="/create-account"><i class="icon-f-94"></i>Đăng ký</a></li>
+												<% } %>
+									    
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /tt-account -->
+					<!-- tt-langue and tt-currency -->
+					<div class="tt-desctop-parent-multi tt-parent-box">
+						<div class="tt-multi-obj tt-dropdown-obj">
+							<button class="tt-dropdown-toggle" data-tooltip="Cài đặt" data-tposition="bottom"><i class="icon-f-79"></i></button>
+							<div class="tt-dropdown-menu">
+								<div class="tt-mobile-add">
+									<button class="tt-close">Đóng</button>
+								</div>
+								<div class="tt-dropdown-inner">
+									<ul>
+										<li class="active"><a href="/#">Tiếng Việt</a></li>
+										
+									</ul>
+									<ul>
+										<li class="active"><a href="/#"><i class="icon-h-59"></i>VND - Việt Nam Đồng</a></li>
+										<li><a href="/admin/create-sp"><i class="icon-h-60"></i>Đăng sản phẩm</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /tt-langue and tt-currency -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- stuck nav -->
+	<div class="tt-stuck-nav">
+		<div class="container">
+			<div class="tt-header-row ">
+				<div class="tt-stuck-parent-menu"></div>
+				<div class="tt-stuck-parent-search tt-parent-box"></div>
+				<div class="tt-stuck-parent-cart tt-parent-box"></div>
+				<div class="tt-stuck-parent-account tt-parent-box"></div>
+				<div class="tt-stuck-parent-multi tt-parent-box"></div>
+			</div>
+		</div>
+	</div>

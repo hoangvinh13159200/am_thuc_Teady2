@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+</head>
+<body>
+    <% include partials/loader %>
+<header>
+    <% include partials/header %>
+</header>
+<div class="tt-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li>Danh sách</li>
+		</ul>
+	</div>
+</div>
+<div id="tt-pageContent">
+	<div class="container-indent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-lg-3 col-xl-3 leftColumn aside">
+					<div class="tt-btn-col-close">
+						<a href="#">Đóng</a>
+					</div>
+					<div class="tt-collapse open tt-filter-detach-option">
+						<div class="tt-collapse-content">
+							<div class="filters-mobile">
+								<div class="filters-row-select">
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<form method="GET">
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">LOẠI SẢN PHẨM</h3>
+						<div class="tt-collapse-content">
+							
+	
+									<ul class="tt-list-row">
+											<% categories.forEach(function(cat) { %>
+
+												<%if (cat == currentCat) { %>
+													<li class ="active">
+															<a href="/products/<%= cat %>"><%= cat %></a></li>
+													</li>
+														<% categoriesChild.forEach(function(child) { %>
+															<%if (child == currentChild) { %>
+															<li class="active" style="margin-left: 10px;">
+																	<a href="/products/<%= cat %>/<%= child %>"><%= child %></a></li>
+															</li>
+															<% }; %>
+
+															<%if (child != currentChild) { %>
+																<li style="margin-left: 10px;">
+																		<a href="/products/<%= cat %>/<%= child %>"><%= child %></a></li>
+																</li>
+																<% }; %>
+															<% }); %>
+													<% }; %>
+
+													<%if (cat != currentCat) { %>
+														<li>
+																<a href="/products/<%= cat %>"><%= cat %></a></li>
+													</li>
+														<% }; %>
+										
+											<% }); %>
+										</ul>
+							
+						</div>
+					</div>
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">Lọc theo giá</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-list-row" id="product-price">
+								<li><input type="radio" name="price" value="50"> 0 — 50.000 VND</li>
+								<li><input type="radio" name="price" value="100"> 50.000 — 100.000 VND</li>
+								<li><input type="radio" name="price" value="150"> 100.000 — 150.000 VND</li>
+								<li><input type="radio" name="price" value="200"> 150.000—  200.000 VND</li>
+								<li><input type="radio" name="price" value="1000000" >>200.000 VND</li>
+							</ul>
+						</div>
+					</div>
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">Lọc theo kích thước</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-list-row" id="product-size">
+								<li><input type="radio" name="size" value="Nhỏ"> Nhỏ</li>
+								<li><input type="radio" name="size" value="Vừa"> Vừa</li>
+								<li><input type="radio" name="size" value="Lớn"> Lớn</li>
+								<li><input type="radio" name="size" value="Rất lớn"> Rất lớn</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">Xuất xứ</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-list-row" id="product-label">
+								<li><input type="radio" name="label" value="shiro"> Trung Quốc</li>
+								<li><input type="radio" name="label" value="crepp"> Hàn Quốc</li>
+								<li><input type="radio" name="label" value="mob"> Nhật Bản </li>
+								<li><input type="radio" name="label" value="Gucci"> Việt Nam</li>
+							</ul>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-border mx-auto mb-5">Lọc</button>
+					</form>
+					
+					<div class="tt-content-aside">
+						<a href="/products" class="tt-promo-03">
+							<img src="/images/custom/tdaa.jpg" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-9 col-xl-9">
+					<div class="content-indent container-fluid-custom-mobile-padding-02">
+						<div class="tt-filters-options">
+							<h1 class="tt-title">
+								Danh sách sản phẩm
+							</h1>
+							<div class="tt-btn-toggle">
+								<a href="#">Lọc</a>
+							</div>
+							<div class="tt-sort tt-sort-1">
+								<form class="woocommerce-ordering" method="GET" >
+									<select name="orderby" class="orderby" aria-label="Shop order" onchange="this.form.submit()">
+										<option value="" selected disabled hidden><%= sort_value %></option>
+										
+										<option value="1" >Giá thấp tới cao</option>
+										<option value="-1" >Giá cao tới thấp</option>
+									</select>
+									<!-- <input type="hidden" name="paged" value="1"/> -->
+								</form>
+							</div>
+							<div class="tt-sort tt-sort-2">
+							
+								<form method="POST">
+									
+								
+									<select name="numItems" onchange="this.form.submit()" class="form-control">
+										<% if(ITEM_PER_PAGE != 1000){%>
+								
+										<option value="" selected disabled hidden><%= ITEM_PER_PAGE%></option>
+										<% }else{%>
+											<option value="" selected disabled hidden>Tất cả</option>
+										<% } %>
+
+										<option value="8" >8</option>
+								
+												
+										<option value="12" >12</option>
+								
+												
+										<option value="16" >16</option>
+								
+												
+										<option value="32" >32</option>
+								
+												
+										<option value="1000" >Tất cả</option>
+								
+												
+									</select>
+								
+								</form>  
+								
+							</div>
+								
+							
+						</div>
+						<div class="tt-product-listing row">
+							<% allProducts.forEach(function(prod) { %>
+
+					
+
+								<div class="col-6 col-md-4 col-lg-3">
+									<div class="tt-product thumbprod-center">
+										<div class="tt-image-box">
+											
+											
+											<a href="/product/<%= prod._id %>">
+												<span class="tt-img"><img src="/images/product/<%= prod.images[0] %>" data-src="/images/product/<%= prod.images[0] %>" alt="" class="loaded" data-was-processed="true"></span>
+												<span class="tt-img-roll-over"><img src="/images/product/<%= prod.images[1] %>" data-src="/images/product/<%= prod.images[1] %>" alt="" class="loaded" data-was-processed="true"></span>
+											</a>
+										</div>
+										<div class="tt-description">
+											<div class="tt-row">
+												<ul class="tt-add-info">
+													<li><a href="#"><%= prod.productType.sub %></a></li>
+												</ul>
+												<div class="tt-rating">
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+												</div>
+											</div>
+											<h2 class="tt-title"><a href="/product/<%= prod._id %>"><%= prod.name %></a></h2>
+											<div class="tt-price">
+												<%= prod.price %>.000 VNĐ
+											</div>
+											<div class="tt-product-inside-hover" >
+												<div class="tt-row-btn">
+													<button class="tt-btn-addtocart thumbprod-button-bg add-cart" data-id="<%= prod._id %>" data-toggle="modal" data-target="#modalAddToCartProduct<%= prod._id %>">THÊM VÀO GIỎ HÀNG</button>
+												</div>
+												<div class="tt-row-btn">
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+								
+								<div
+									  class="modal fade"
+									  id="modalAddToCartProduct<%= prod._id %>"
+									  tabindex="-1"
+									  role="dialog"
+									  aria-label="myModalLabel"
+									  aria-hidden="true"
+								>
+			  <div class="modal-dialog">
+				<div class="modal-content ">
+				  <div class="modal-header">
+					<button
+					  type="button"
+					  class="close"
+					  data-dismiss="modal"
+					  aria-hidden="true"
+					  
+					>
+					  <span class="icon icon-clear"></span>
+					</button>
+				  </div>
+				  <div class="modal-body">
+					<div class="tt-modal-addtocart mobile">
+					  <div class="tt-modal-messages">
+						<i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+					  </div>
+					  <button class="btn-link btn-close-popup" data-dismiss="modal">Tiếp tục mua sắm</button>
+					  <a href="/shopping_cart" class="btn-link">XEM GIỎ HÀNG</a>
+					  <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+						<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+						<% }else if(typeof(user) == 'undefined'){ %>
+							<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+							
+							<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+								<a href="/shopping_cart" class="btn">Thanh toán</a>
+								<% } %>
+					</div>
+					<div class="tt-modal-addtocart desctope">
+					  <div class="row">
+						<div class="col-12 col-lg-6">
+						  <div class="tt-modal-messages">
+							<i class="icon-f-68"></i> Đã thêm vào giỏ hàng thành công!
+						  </div>
+						  <div class="tt-modal-product">
+							<div class="tt-img">
+							  <img
+								src="/images/loader.svg"
+								data-src="/images/product/<%= prod.images[0] %>"
+								alt=""
+							  />
+							</div>
+							<h2 class="tt-title">
+							  <a href="/product/<%= prod.name %>"><%= prod.name %></a>
+							</h2>
+			
+							<div class="tt-qty">QTY: <span>1</span></div>
+						  </div>
+						  <div class="tt-product-total">
+							<div class="tt-total">
+							  TOTAL:
+							  <span class="tt-price"><%= prod.price %>.000 VNĐ</span>
+							</div>
+						  </div>
+						</div>
+						<div class="col-12 col-lg-4">
+						  
+						  <a href="#" class="btn btn-border btn-close-popup" data-dismiss="modal"
+						  
+							>Tiếp tục mua sắm</a
+						  >
+						  <a href="/shopping_cart" class="btn btn-border">Xem giỏ hàng</a>
+						  <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+							<a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+							<% }else if(typeof(user) == 'undefined'){ %>
+								<a href="/login" class="btn">Đăng nhập để thanh toán</a>
+								
+								<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+									<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+									<% } %>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+								<% }); %>
+						</div>
+						<nav aria-label="Page navigation example" style="margin-top: 20px;">
+								
+								<ul class="pagination justify-content-center">
+										<% if (currentPage !== 1){ %>
+										<li class="page-item">
+												<a class="page-link" href="/products/?page=<%= previousPage %>" aria-label="Previous">
+												  <span aria-hidden="true">&laquo;</span>
+												  <span class="sr-only">Previous</span>
+												</a>
+										</li>
+										<% } %>
+				
+
+								  
+								  <% if(hasPreviousPage ){  %>
+									<li class="page-item"><a class="page-link" href="?page=<%= previousPage %>"><%= previousPage %></a></li>
+								  <% } %>
+
+								  <li class="page-item active"><a class="page-link" href="javascript:void(0)" tabindex="-1"><%= currentPage %></a></li>
+
+								  <% if(hasNextPage){  %>
+									  <li class="page-item"><a class="page-link" href="?page=<%= nextPage %>"><%= nextPage %></a></li>
+								  <% } %>
+								  
+								  <% if(currentPage < lastPage){ %>
+								  <li class="page-item">
+										<a class="page-link" href="?page=<%= nextPage %>" aria-label="Next">
+										  <span aria-hidden="true">&raquo;</span>
+										  <span class="sr-only">Next</span>
+										</a>
+									</li>
+									<% } %>
+
+								</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+    <% include partials/footer %>
+</footer>
+<a href="#" class="tt-back-to-top">BACK TO TOP</a>
+<!-- Partials -->
+<% include partials/modal-addtocartproduct %>
+<% include partials/modal-quickviewmodal %>
+<% include partials/modal-videoproduct %>
+<% include partials/modal-subscribegood %>
+
+<% include partials/script %>
+</body>
+</html>
