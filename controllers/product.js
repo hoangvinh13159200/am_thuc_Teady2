@@ -17,6 +17,51 @@ var price;
 var searchText;
 
 
+exports.getAdminDSSP = (req, res, next) =>{
+  var cartProduct;
+  if (!req.session.cart) {
+    cartProduct = null;
+  } else {
+    var cart = new Cart(req.session.cart);
+    cartProduct = cart.generateArray();
+  }
+  const messageSucc = req.flash("success")[0];
+  const messageError = req.flash("error")[0];
+  Order.find({}).then(order => {
+    res.render("admin_dssp", {
+      title: "Danh sách đơn hàng",
+      user: req.user,
+      cartProduct: cartProduct,
+      order: order,
+      messageSucc: messageSucc,
+      messageError:messageError
+    });
+  });
+}
+
+exports.getAdminDH = (req, res, next) =>{
+  var cartProduct;
+  if (!req.session.cart) {
+    cartProduct = null;
+  } else {
+    var cart = new Cart(req.session.cart);
+    cartProduct = cart.generateArray();
+  }
+  const messageSucc = req.flash("success")[0];
+  const messageError = req.flash("error")[0];
+  Order.find({}).then(order => {
+    res.render("admin_donhang", {
+      title: "Danh sách đơn hàng",
+      user: req.user,
+      cartProduct: cartProduct,
+      order: order,
+      messageSucc: messageSucc,
+      messageError:messageError
+    });
+  });
+}
+
+
 exports.getCreateSP = (req, res, next) => {
   var cartProduct;
   if (!req.session.cart) {

@@ -273,7 +273,7 @@
 							  <a href="/product/<%= prod.name %>"><%= prod.name %></a>
 							</h2>
 			
-							<div class="tt-qty">QTY: <span>1</span></div>
+							<div class="tt-qty">Số lượng: <span>1</span></div>
 						  </div>
 						  <div class="tt-product-total">
 							<div class="tt-total">
@@ -295,7 +295,7 @@
 								<a href="/login" class="btn">Đăng nhập để thanh toán</a>
 								
 								<% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
-									<a href="/verify-email" class="btn">Kích hoạt email để thanh toán</a>
+									<a href="/add-order" class="btn">Thanh toán</a>
 									<% } %>
 						</div>
 					  </div>
