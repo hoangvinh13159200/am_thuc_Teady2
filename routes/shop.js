@@ -4,6 +4,7 @@ const userController = require("../controllers/user");
 const productController = require("../controllers/product");
 /* GET home page. */
 
+router.get("/admin_dssp", productController.getAdminDSSP);
 
 router.get("/admin_dh", productController.getAdminDH);
 
