@@ -27,12 +27,12 @@ exports.getAdminDSSP = (req, res, next) =>{
   }
   const messageSucc = req.flash("success")[0];
   const messageError = req.flash("error")[0];
-  Order.find({}).then(order => {
+  Products.find().then(proc => {
     res.render("admin_dssp", {
       title: "Danh sách đơn hàng",
       user: req.user,
       cartProduct: cartProduct,
-      order: order,
+      proc: proc,
       messageSucc: messageSucc,
       messageError:messageError
     });
