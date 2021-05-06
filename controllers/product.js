@@ -17,6 +17,13 @@ var price;
 var searchText;
 
 
+exports.deleteSP = (req, res, next) =>{
+  Products.deleteOne({ _id: req.params.id })
+    .then(() => res.redirect('back'))
+    .catch(next);
+}
+
+
 exports.getAdminDSSP = (req, res, next) =>{
   var cartProduct;
   if (!req.session.cart) {
@@ -29,7 +36,7 @@ exports.getAdminDSSP = (req, res, next) =>{
   const messageError = req.flash("error")[0];
   Products.find().then(proc => {
     res.render("admin_dssp", {
-      title: "Danh sách đơn hàng",
+      title: "Danh sách sản phâm",
       user: req.user,
       cartProduct: cartProduct,
       proc: proc,

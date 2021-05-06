@@ -20,6 +20,10 @@
               
               <div class="form-default">
                 <form method="POST" action="/createSP" >
+                  <div class="form-group">
+                    <label for="example-input-file">&nbsp;</label>
+                    <input type="file" name="images" class="form-control-file border">
+                </div>
                         <div class="form-group">
                             <label for="name">Tên sản phẩm:</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -32,10 +36,10 @@
                           <label for="price">Giá sản phẩm: </label>
                           <input type="text" class="form-control" id="price" name="price">
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="images">Tên ảnh : </label>
                         <input type="text" class="form-control" id="images" name="images">
-                      </div>
+                      </div> -->
                       <div class="form-group">
                         <label for="tags">Tags : </label>
                         <input type="text" class="form-control" id="tags" name="tags">
