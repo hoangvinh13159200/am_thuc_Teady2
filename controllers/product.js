@@ -3,6 +3,7 @@ const Categories = require("../models/productCategory");
 const Cart = require("../models/cart");
 var Users = require("../models/user");
 const Order = require("../models/order");
+const Product = require("../models/product");
 
 var ITEM_PER_PAGE = 12;
 var SORT_ITEM;
@@ -16,6 +17,21 @@ var plowerprice;
 var price;
 var searchText;
 
+
+// exports.locSP_price = (req, res, next)=>{
+//   var cartProduct;
+//   if (!req.session.cart) {
+//     cartProduct = null;
+//   } else {
+//     var cart = new Cart(req.session.cart);
+//     cartProduct = cart.generateArray();
+//   }
+
+
+//   Products.find({ _id: req.params.id })
+//     .then(() => res.redirect('back'))
+//     .catch(next);
+// }
 
 exports.deleteSP = (req, res, next) =>{
   Products.deleteOne({ _id: req.params.id })
@@ -175,7 +191,7 @@ exports.getProducts = (req, res, next) => {
   ptypesub = req.query.type !== undefined ? req.query.type : ptypesub;
   pprice = req.query.price !== undefined ? req.query.price : 999999;
   psize = req.query.size !== undefined ? req.query.size : psize;
-  plabel = req.query.label !== undefined ? req.query.label : plabel;
+  plabel = req.query.labels !== undefined ? req.query.labels : plabel;
   plowerprice = pprice !== 999999 ? pprice - 50 : 0;
   plowerprice = pprice == 1000000 ? 200 : plowerprice;
   SORT_ITEM = req.query.orderby;
@@ -227,7 +243,7 @@ exports.getProducts = (req, res, next) => {
     "productType.main": new RegExp(productType, "i"),
     "productType.sub": new RegExp(productChild, "i"),
     size: new RegExp(psize, "i"),
-    price: { $gt: plowerprice, $lt: pprice },
+    price: { $gte: plowerprice, $lt: pprice },
     labels: new RegExp(plabel, "i")
   })
     .countDocuments()
