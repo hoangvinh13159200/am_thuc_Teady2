@@ -18,20 +18,29 @@ var price;
 var searchText;
 
 
-// exports.locSP_price = (req, res, next)=>{
-//   var cartProduct;
-//   if (!req.session.cart) {
-//     cartProduct = null;
-//   } else {
-//     var cart = new Cart(req.session.cart);
-//     cartProduct = cart.generateArray();
-//   }
+exports.getAdminEditSP = (req, res, next) =>{
+  Products.find({_id: req.params.id})
+  .then(proc => {
+    res.render("admin_editSP", {
+      title: "Chỉnh sửa thông tin sản phẩm",
+      user: req.user,
+      proc: proc
+    });
+  });
+}
 
-
-//   Products.find({ _id: req.params.id })
-//     .then(() => res.redirect('back'))
-//     .catch(next);
-// }
+exports.postEditSP = async (req, res, next) =>{
+  await Products.updateOne({ _id: req.body._id }, req.body, (err, doc)=> {
+    if (err) {
+        console.log("Something wrong when updating data!");
+    }
+    doc = req.body;
+    console.log(req.body._id);
+    console.log(doc);
+    res.redirect('/admin_dssp')
+  })
+    
+}
 
 exports.deleteSP = (req, res, next) =>{
   Products.deleteOne({ _id: req.params.id })
@@ -243,7 +252,7 @@ exports.getProducts = (req, res, next) => {
     "productType.main": new RegExp(productType, "i"),
     "productType.sub": new RegExp(productChild, "i"),
     size: new RegExp(psize, "i"),
-    price: { $gte: plowerprice, $lt: pprice },
+    price: { $gte: plowerprice, $lte: pprice },
     labels: new RegExp(plabel, "i")
   })
     .countDocuments()
@@ -253,7 +262,7 @@ exports.getProducts = (req, res, next) => {
         "productType.main": new RegExp(productType, "i"),
         "productType.sub": new RegExp(productChild, "i"),
         size: new RegExp(psize, "i"),
-        price: { $gt: plowerprice, $lt: pprice },
+        price: { $gte: plowerprice, $lte: pprice },
         labels: new RegExp(plabel, "i")
       })
         .skip((page - 1) * ITEM_PER_PAGE)

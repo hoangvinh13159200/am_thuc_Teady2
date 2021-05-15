@@ -12,16 +12,21 @@ exports.getAdmin = (req, res, next)=>{
     var cart = new Cart(req.session.cart);
     cartProduct = cart.generateArray();
   }
+  var users = Users.find()
   const messageSucc = req.flash("success")[0];
   const messageError = req.flash("error")[0];
   Order.find().then(order => {
+    console.log(order[1].cart.totalPrice)
+    console.log("So luong user la:")
+    console.log(users.lenght)
     res.render("admin", {
       title: "Admin",
       // user: req.user,
-      cartProduct: cartProduct,
+      // cartProduct: cartProduct,
       order: order,
-      messageSucc: messageSucc,
-      messageError:messageError
+      user: users,
+      // messageSucc: messageSucc,
+      // messageError:messageError
     });
   });
 }

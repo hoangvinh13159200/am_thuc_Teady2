@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include partials/head %>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= (typeof title != "undefined" ? title : "") %>"> <meta name="description" content="<%= (typeof title != "undefined"
+? title : "") %>"> <meta name="author" content="<%= (typeof title != "undefined" ? title : "") %>">
+    <title><%= (typeof title != "undefined" ? title : "") %></title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/admin/css/datepicker3.css" rel="stylesheet">
+    <link href="/admin/css/styles.css" rel="stylesheet">
+    
+    <!--Custom Font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  </head>
+  <body>
+    <% include partials/loader %>
+    <header>
+    </header>
+    <div id="tt-pageContent">
+      <div class="container-indent">
+        <div class="container container-fluid-custom-mobile-padding">
+          <h1 class="tt-title-subpages noborder">Chỉnh sửa thông tin sản phẩm <br> <%= proc[0]._id %></h1>
+          <div class="tt-shopping-layout">
+            <h2 class="tt-title"></h2>
+            <div class="tt-wrapper">
+              
+              <div class="form-default">
+                <form method="post" action="/<%= proc[0]._id %>" >
+                  <div class="tt-table-responsive">
+                    <table class="tt-table-shop-01">
+                      <thead>
+                        <tr>
+                          <th>Mã sản phẩm</th>
+                          <th>Tên sản phẩm</th>
+                          <th>Giá</th>
+                          <th>Nhãn</th>
+                          <th>Kích thước</th>
+                          <th>Mô tả sản phẩm</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                        <tr>
+                          <td><input type="text" class="form-group" value="<%= proc[0]._id %>" id="_id" name="_id"></td>
+                          <td><input type="text" class="form-group" value="<%= proc[0].name %>" id="name" name="name"></td>
+                          <td><input type="text" class="form-group" value="<%= proc[0].price %>" id="price" name="price"></td>
+                          <td><input type="text" class="form-group" value="<%= proc[0].labels %>" id="labels" name="labels"></td>
+                          <td>
+                            <input type="text" class="form-group" value="<%= proc[0].size %>" id="size" name="size">
+                          </td>
+                          <td>
+                            <input type="text" class="form-group" value="<%= proc[0].description %>" id="description" name="description">
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+<footer>
+</footer>
+    <script src="/admin/js/jquery-1.11.1.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+    <script src="/admin/js/chart.min.js"></script>
+    <script src="/admin/js/chart-data.js"></script>
+    <script src="/admin/js/easypiechart.js"></script>
+    <script src="/admin/js/easypiechart-data.js"></script>
+    <script src="/admin/js/bootstrap-datepicker.js"></script>
+    <script src="/admin/js/custom.js"></script>
+    <script>
+      window.onload = function () {
+      var chart1 = document.getElementById("line-chart").getContext("2d");
+      window.myLine = new Chart(chart1).Line(lineChartData, {
+      responsive: true,
+      scaleLineColor: "rgba(0,0,0,.2)",
+      scaleGridLineColor: "rgba(0,0,0,.05)",
+      scaleFontColor: "#c5c7cc"
+      });
+      var chart2 = document.getElementById("bar-chart").getContext("2d");
+      window.myBar = new Chart(chart2).Bar(barChartData, {
+      responsive: true,
+      scaleLineColor: "rgba(0,0,0,.2)",
+      scaleGridLineColor: "rgba(0,0,0,.05)",
+      scaleFontColor: "#c5c7cc"
+      });
+      var chart3 = document.getElementById("doughnut-chart").getContext("2d");
+      window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
+      responsive: true,
+      segmentShowStroke: false
+      });
+      var chart4 = document.getElementById("pie-chart").getContext("2d");
+      window.myPie = new Chart(chart4).Pie(pieData, {
+      responsive: true,
+      segmentShowStroke: false
+      });
+      var chart5 = document.getElementById("radar-chart").getContext("2d");
+      window.myRadarChart = new Chart(chart5).Radar(radarData, {
+      responsive: true,
+      scaleLineColor: "rgba(0,0,0,.05)",
+      angleLineColor: "rgba(0,0,0,.2)"
+      });
+      var chart6 = document.getElementById("polar-area-chart").getContext("2d");
+      window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+      responsive: true,
+      scaleLineColor: "rgba(0,0,0,.2)",
+      segmentShowStroke: false
+      });
+    };
+      </script>	
+    <!-- <a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
+    <!-- Partials -->
+    <% include partials/modal-addtocartproduct %> <% include
+    partials/modal-quickviewmodal %> <% include partials/modal-videoproduct %>
+    <% include partials/modal-subscribegood %> <% include
+    partials/modal-newsletter %> <% include partials/script %>
+  </body>
+</html>

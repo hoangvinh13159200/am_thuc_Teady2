@@ -4,6 +4,10 @@ const userController = require("../controllers/user");
 const productController = require("../controllers/product");
 /* GET home page. */
 
+router.post("/:id", productController.postEditSP);
+
+router.get("/editSP/:id", productController.getAdminEditSP);
+
 router.get("/delete/:id", productController.deleteSP);
 
 router.get("/admin_dssp", productController.getAdminDSSP);
