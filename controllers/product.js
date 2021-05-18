@@ -29,18 +29,18 @@ exports.getAdminEditSP = (req, res, next) =>{
   });
 }
 
-exports.postEditSP = async (req, res, next) =>{
-  await Products.updateOne({ _id: req.body._id }, req.body, (err, doc)=> {
-    if (err) {
-        console.log("Something wrong when updating data!");
-    }
-    doc = req.body;
-    console.log(req.body._id);
-    console.log(doc);
-    res.redirect('/admin_dssp')
-  })
+// exports.postEditSP = async (req, res, next) =>{
+//   await Products.updateOne({ _id: req.body._id }, req.body, (err, doc)=> {
+//     if (err) {
+//         console.log("Something wrong when updating data!");
+//     }
+//     doc = req.body;
+//     console.log(req.body._id);
+//     console.log(doc);
+//     res.redirect('/admin_dssp')
+//   })
     
-}
+// }
 
 exports.deleteSP = (req, res, next) =>{
   Products.deleteOne({ _id: req.params.id })
@@ -297,7 +297,9 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.postNumItems = (req, res, next) => {
+  console.log("Xin chao")
   ITEM_PER_PAGE = parseInt(req.body.numItems);
+  console.log(req.body.numItems)
   res.redirect("back");
 };
 

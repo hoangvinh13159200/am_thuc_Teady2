@@ -4,7 +4,7 @@ const userController = require("../controllers/user");
 const productController = require("../controllers/product");
 /* GET home page. */
 
-router.post("/:id", productController.postEditSP);
+// router.post("/:id", productController.postEditSP);
 
 router.get("/editSP/:id", productController.getAdminEditSP);
 
@@ -18,14 +18,15 @@ router.get("/", productController.getIndexProducts);
 
 router.get("/product/:productId", productController.getProduct);
 
-router.get(
-  "/products/:productType?/:productChild?",
-  productController.getProducts
-);
 
 router.get("/create-sp", productController.getCreateSP);
 
 router.post("/createSP", productController.postCreateSP);
+
+router.get(
+  "/products/:productType?/:productChild?",
+  productController.getProducts
+);
 
 router.post("/products/:productType*?", productController.postNumItems);
 
