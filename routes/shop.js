@@ -5,6 +5,7 @@ const productController = require("../controllers/product");
 /* GET home page. */
 
 // router.post("/:id", productController.postEditSP);
+router.get("/admin_kh", productController.getKH);
 
 router.get("/editSP/:id", productController.getAdminEditSP);
 
@@ -24,8 +25,8 @@ router.get("/create-sp", productController.getCreateSP);
 router.post("/createSP", productController.postCreateSP);
 
 router.get(
-  "/products/:productType?/:productChild?",
-  productController.getProducts
+    "/products/:productType?/:productChild?",
+    productController.getProducts
 );
 
 router.post("/products/:productType*?", productController.postNumItems);

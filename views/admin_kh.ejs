@@ -56,8 +56,8 @@
             <ul class="nav menu">
                 <li><a href="/admin"><em class="fa fa-dashboard">&nbsp;</em> Admin</a></li>
                 <li><a href="admin_dh"><em class="fa fa-calendar">&nbsp;</em> Đơn hàng</a></li>
-                <li><a href="/admin_kh"><em class="fa fa-bar-chart">&nbsp;</em> Khách hàng</a></li>
-                <li class="active"><a href="/admin_dssp"><em class="fa fa-toggle-off">&nbsp;</em> Danh sách sản phẩm</a></li>
+                <li class="active"><a href="/admin_kh"><em class="fa fa-bar-chart">&nbsp;</em> Khách hàng</a></li>
+                <li><a href="/admin_dssp"><em class="fa fa-toggle-off">&nbsp;</em> Danh sách sản phẩm</a></li>
                 <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
                 <li class="parent ">
                     <a data-toggle="collapse" href="#sub-item-1">
@@ -94,14 +94,14 @@
                             <em class="fa fa-home"></em>
                         </a>
                     </li>
-                    <li class="active">Danh sách sản phẩm</li>
+                    <li class="active">Danh sách khách hàng</li>
                 </ol>
             </div>
             <!--/.row-->
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Danh sách sản phẩm</h1>
+                    <h1 class="page-header">Danh sách khách hàng</h1>
                 </div>
             </div>
             <!--/.row-->
@@ -110,36 +110,54 @@
                 <table class="tt-table-shop-01">
                     <thead>
                         <tr>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Loại sản phẩm</th>
+                            <th>Mã Khách hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Gmail</th>
+                            <th>Số điện thoại</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% proc.forEach(function(o){ %>
+                        <% user.forEach(function(o){ %>
                             <tr>
-                                <td><a href="javascript:void(0)">#<%= o._id %></a></td>
                                 <td>
-                                    <%= o.name %>
-                                </td>
-                                <td>
-                                    <%= o.price %>
-                                </td>
-                                <td>
-                                    <%= o.productType.sub %>
-                                </td>
-                                <td>
-                                    <a href="/editSP/<%= o._id %>">Edit/</a>
-                                    <a href="/delete/<%= o._id %>">Xóa</a>
-                                </td>
+                                    <button class="tt-btn-addtocart thumbprod-button-bg add-cart" data-id="<%= o._id %>" data-toggle="modal" data-target="#modalAddToCartProduct<%= o._id %>">#<%= o._id %></button>
+                                    <!-- <a href="javascript:void(0)">#<%= o._id %></a></td> -->
+                                    <td>
+                                        <%= o.username %>
+                                    </td>
+                                    <td>
+                                        <%= o.email %>
+                                    </td>
+                                    <td>
+                                        <%= o.phoneNumber %>
+                                    </td>
+                                    <td>
+                                        <a href="/editSP/<%= o._id %>">Edit/</a>
+                                        <a href="/delete/<%= o._id %>">Xóa</a>
+                                    </td>
                             </tr>
                             <% }) %>
                     </tbody>
                 </table>
             </div>
-            <!-- {{!-- Delete hidden form --}}
+            <div class="modal-body">
+                <div class="tt-modal-addtocart mobile">
+                    <div class="tt-modal-messages">
+                        <i class="icon-f-68"></i> Thông tin chi tiết khách hàng
+                    </div>
+                    <button class="btn-link btn-close-popup" data-dismiss="modal">Tiếp tục mua sắm</button>
+                    <!-- <a href="/shopping_cart" class="btn-link">XEM GIỎ HÀNG</a>
+                    <%if (typeof(user) !== 'undefined' && user.isAuthenticated) { %>
+                        <a href="/add-order" class="btn">Chuyển đến thanh toán</a>
+                        <% }else if(typeof(user) == 'undefined'){ %>
+                            <a href="/login" class="btn">Đăng nhập để thanh toán</a>
+
+                            <% }else if(typeof(user) !== 'undefined' && !user.isAuthenticated){ %>
+                                <a href="/shopping_cart" class="btn">Thanh toán</a>
+                                <% } %> -->
+                </div>
+                <!-- {{!-- Delete hidden form --}}
       <form name="delete-course-form" method="POST"></form>
       <div id="delete-course-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -160,10 +178,10 @@
           </div>
         </div>
       </div> -->
-            <!-- {{!-- Delete hidden form --}} -->
-            <!-- <form name="delete-course-form" method="POST"></form> -->
+                <!-- {{!-- Delete hidden form --}} -->
+                <!-- <form name="delete-course-form" method="POST"></form> -->
 
-            <!-- <script>
+                <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var courseId;
         var deleteForm = document.forms['delete-course-form'];
@@ -182,66 +200,66 @@
     });
 </script> -->
 
-            <footer>
-            </footer>
-            <script src="/admin/js/jquery-1.11.1.min.js"></script>
-            <script src="/admin/js/bootstrap.min.js"></script>
-            <script src="/admin/js/chart.min.js"></script>
-            <script src="/admin/js/chart-data.js"></script>
-            <script src="/admin/js/easypiechart.js"></script>
-            <script src="/admin/js/easypiechart-data.js"></script>
-            <script src="/admin/js/bootstrap-datepicker.js"></script>
-            <script src="/admin/js/custom.js"></script>
-            <script>
-                window.onload = function() {
-                    var chart1 = document.getElementById("line-chart").getContext("2d");
-                    window.myLine = new Chart(chart1).Line(lineChartData, {
-                        responsive: true,
-                        scaleLineColor: "rgba(0,0,0,.2)",
-                        scaleGridLineColor: "rgba(0,0,0,.05)",
-                        scaleFontColor: "#c5c7cc"
-                    });
-                    var chart2 = document.getElementById("bar-chart").getContext("2d");
-                    window.myBar = new Chart(chart2).Bar(barChartData, {
-                        responsive: true,
-                        scaleLineColor: "rgba(0,0,0,.2)",
-                        scaleGridLineColor: "rgba(0,0,0,.05)",
-                        scaleFontColor: "#c5c7cc"
-                    });
-                    var chart3 = document.getElementById("doughnut-chart").getContext("2d");
-                    window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
-                        responsive: true,
-                        segmentShowStroke: false
-                    });
-                    var chart4 = document.getElementById("pie-chart").getContext("2d");
-                    window.myPie = new Chart(chart4).Pie(pieData, {
-                        responsive: true,
-                        segmentShowStroke: false
-                    });
-                    var chart5 = document.getElementById("radar-chart").getContext("2d");
-                    window.myRadarChart = new Chart(chart5).Radar(radarData, {
-                        responsive: true,
-                        scaleLineColor: "rgba(0,0,0,.05)",
-                        angleLineColor: "rgba(0,0,0,.2)"
-                    });
-                    var chart6 = document.getElementById("polar-area-chart").getContext("2d");
-                    window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
-                        responsive: true,
-                        scaleLineColor: "rgba(0,0,0,.2)",
-                        segmentShowStroke: false
-                    });
-                };
-            </script>
-            <!-- <a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
-            <!-- Partials -->
-            <% include partials/modal-addtocartproduct %>
-                <% include
+                <footer>
+                </footer>
+                <script src="/admin/js/jquery-1.11.1.min.js"></script>
+                <script src="/admin/js/bootstrap.min.js"></script>
+                <script src="/admin/js/chart.min.js"></script>
+                <script src="/admin/js/chart-data.js"></script>
+                <script src="/admin/js/easypiechart.js"></script>
+                <script src="/admin/js/easypiechart-data.js"></script>
+                <script src="/admin/js/bootstrap-datepicker.js"></script>
+                <script src="/admin/js/custom.js"></script>
+                <script>
+                    window.onload = function() {
+                        var chart1 = document.getElementById("line-chart").getContext("2d");
+                        window.myLine = new Chart(chart1).Line(lineChartData, {
+                            responsive: true,
+                            scaleLineColor: "rgba(0,0,0,.2)",
+                            scaleGridLineColor: "rgba(0,0,0,.05)",
+                            scaleFontColor: "#c5c7cc"
+                        });
+                        var chart2 = document.getElementById("bar-chart").getContext("2d");
+                        window.myBar = new Chart(chart2).Bar(barChartData, {
+                            responsive: true,
+                            scaleLineColor: "rgba(0,0,0,.2)",
+                            scaleGridLineColor: "rgba(0,0,0,.05)",
+                            scaleFontColor: "#c5c7cc"
+                        });
+                        var chart3 = document.getElementById("doughnut-chart").getContext("2d");
+                        window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
+                            responsive: true,
+                            segmentShowStroke: false
+                        });
+                        var chart4 = document.getElementById("pie-chart").getContext("2d");
+                        window.myPie = new Chart(chart4).Pie(pieData, {
+                            responsive: true,
+                            segmentShowStroke: false
+                        });
+                        var chart5 = document.getElementById("radar-chart").getContext("2d");
+                        window.myRadarChart = new Chart(chart5).Radar(radarData, {
+                            responsive: true,
+                            scaleLineColor: "rgba(0,0,0,.05)",
+                            angleLineColor: "rgba(0,0,0,.2)"
+                        });
+                        var chart6 = document.getElementById("polar-area-chart").getContext("2d");
+                        window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+                            responsive: true,
+                            scaleLineColor: "rgba(0,0,0,.2)",
+                            segmentShowStroke: false
+                        });
+                    };
+                </script>
+                <!-- <a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
+                <!-- Partials -->
+                <% include partials/modal-addtocartproduct %>
+                    <% include
     partials/modal-quickviewmodal %>
-                    <% include partials/modal-videoproduct %>
-                        <% include partials/modal-subscribegood %>
-                            <% include
+                        <% include partials/modal-videoproduct %>
+                            <% include partials/modal-subscribegood %>
+                                <% include
     partials/modal-newsletter %>
-                                <% include partials/script %>
+                                    <% include partials/script %>
 </body>
 
 </html>

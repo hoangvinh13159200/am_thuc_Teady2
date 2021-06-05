@@ -1,178 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <% include partials/head %>
-    <meta charset="utf-8">
-    <meta name="keywords" content="<%= (typeof title != "undefined" ? title : "") %>"> <meta name="description" content="<%= (typeof title != "undefined"
-? title : "") %>"> <meta name="author" content="<%= (typeof title != "undefined" ? title : "") %>">
-    <title><%= (typeof title != "undefined" ? title : "") %></title>
-    <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/admin/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/admin/css/datepicker3.css" rel="stylesheet">
-    <link href="/admin/css/styles.css" rel="stylesheet">
-    
-    <!--Custom Font-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  </head>
-  <body>
+        <meta charset="utf-8">
+        <meta name="keywords" content="<%= (typeof title != " undefined " ? title : " ") %>">
+        <meta name="description" content="<%= (typeof title != " undefined "
+? title : " ") %>">
+        <meta name="author" content="<%= (typeof title != " undefined " ? title : " ") %>">
+        <title>
+            <%= (typeof title != "undefined" ? title : "") %>
+        </title>
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/admin/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/admin/css/datepicker3.css" rel="stylesheet">
+        <link href="/admin/css/styles.css" rel="stylesheet">
+
+        <!--Custom Font-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+</head>
+
+<body>
     <% include partials/loader %>
-    <header>
-    </header>
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+        <header>
+        </header>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span></button>
-          <a class="navbar-brand" href="#"><span>Ẩm thực</span>Teady</a>
+                    <a class="navbar-brand" href="#"><span>Ẩm thực</span>Teady</a>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+            <div class="profile-sidebar">
+                <div class="profile-userpic">
+                    <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">Admin</div>
+                    <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="divider"></div>
+            <form role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav menu">
+                <li><a href="/admin"><em class="fa fa-dashboard">&nbsp;</em> Admin</a></li>
+                <li class="active"><a href="admin_dh"><em class="fa fa-calendar">&nbsp;</em> Đơn hàng</a></li>
+                <li><a href="/admin_kh"><em class="fa fa-bar-chart">&nbsp;</em> Khách hàng</a></li>
+                <li><a href="/admin_dssp"><em class="fa fa-toggle-off">&nbsp;</em> Danh sách sản phẩm</a></li>
+                <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
+                <li class="parent ">
+                    <a data-toggle="collapse" href="#sub-item-1">
+                        <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                    </a>
+                    <ul class="children collapse" id="sub-item-1">
+                        <li>
+                            <a class="" href="#">
+                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="#">
+                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="#">
+                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+            </ul>
         </div>
-      </div><!-- /.container-fluid -->
-    </nav>
-    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-      <div class="profile-sidebar">
-        <div class="profile-userpic">
-          <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
-        </div>
-        <div class="profile-usertitle">
-          <div class="profile-usertitle-name">Admin</div>
-          <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="divider"></div>
-      <form role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
-      <ul class="nav menu">
-        <li ><a href="/admin"><em class="fa fa-dashboard">&nbsp;</em> Admin</a></li>
-        <li class="active"><a href="admin_dh"><em class="fa fa-calendar">&nbsp;</em> Đơn hàng</a></li>
-        <li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Biểu đồ</a></li>
-        <li><a href="/admin_dssp"><em class="fa fa-toggle-off">&nbsp;</em> Danh sách sản phẩm</a></li>
-        <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
-        <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-          <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-          </a>
-          <ul class="children collapse" id="sub-item-1">
-            <li><a class="" href="#">
-              <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
-            </a></li>
-            <li><a class="" href="#">
-              <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
-            </a></li>
-            <li><a class="" href="#">
-              <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
-            </a></li>
-          </ul>
-        </li>
-        <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-      </ul>
-    </div><!--/.sidebar-->
-      
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-      <div class="row">
-        <ol class="breadcrumb">
-          <li><a href="#">
-            <em class="fa fa-home"></em>
-          </a></li>
-          <li class="active">Danh sách đơn hàng</li>
-        </ol>
-      </div><!--/.row-->
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header">Danh sách đơn hàng</h1>
-        </div>
-      </div><!--/.row-->
+        <!--/.sidebar-->
 
-      <div class="tt-table-responsive">
-        <table class="tt-table-shop-01">
-          <thead>
-            <tr>
-              <th>Đơn hàng</th>
-              <th>Ngày</th>
-              <th>Địa chỉ</th>
-              <th>SĐT</th>
-              <th>Tổng</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% order.forEach(function(o){ %>
-            <tr>
-              <td><a href="javascript:void(0)">#<%= o._id %></a></td>
-              <td><%= o.date %></td>
-              <td><%= o.address %></td>
-              <td>
-                <%= o.phoneNumber %>
-              </td>
-              <td>
-                <%= o.cart.totalPrice %>.000 VNĐ cho <%= o.cart.totalQty %> sản
-                phẩm
-              </td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
+        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">
+                            <em class="fa fa-home"></em>
+                        </a>
+                    </li>
+                    <li class="active">Danh sách đơn hàng</li>
+                </ol>
+            </div>
+            <!--/.row-->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Danh sách đơn hàng</h1>
+                </div>
+            </div>
+            <!--/.row-->
+
+            <div class="tt-table-responsive">
+                <table class="tt-table-shop-01">
+                    <thead>
+                        <tr>
+                            <th>Đơn hàng</th>
+                            <th>Ngày</th>
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% order.forEach(function(o){ %>
+                            <tr>
+                                <td><a href="javascript:void(0)">#<%= o._id %></a></td>
+                                <td>
+                                    <%= o.date %>
+                                </td>
+                                <td>
+                                    <%= o.address %>
+                                </td>
+                                <td>
+                                    <%= o.phoneNumber %>
+                                </td>
+                                <td>
+                                    <%= o.cart.totalPrice %>.000 VNĐ cho
+                                        <%= o.cart.totalQty %> sản phẩm
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
 
 
-<footer>
-</footer>
-    <script src="/admin/js/jquery-1.11.1.min.js"></script>
-    <script src="/admin/js/bootstrap.min.js"></script>
-    <script src="/admin/js/chart.min.js"></script>
-    <script src="/admin/js/chart-data.js"></script>
-    <script src="/admin/js/easypiechart.js"></script>
-    <script src="/admin/js/easypiechart-data.js"></script>
-    <script src="/admin/js/bootstrap-datepicker.js"></script>
-    <script src="/admin/js/custom.js"></script>
-    <script>
-      window.onload = function () {
-      var chart1 = document.getElementById("line-chart").getContext("2d");
-      window.myLine = new Chart(chart1).Line(lineChartData, {
-      responsive: true,
-      scaleLineColor: "rgba(0,0,0,.2)",
-      scaleGridLineColor: "rgba(0,0,0,.05)",
-      scaleFontColor: "#c5c7cc"
-      });
-      var chart2 = document.getElementById("bar-chart").getContext("2d");
-      window.myBar = new Chart(chart2).Bar(barChartData, {
-      responsive: true,
-      scaleLineColor: "rgba(0,0,0,.2)",
-      scaleGridLineColor: "rgba(0,0,0,.05)",
-      scaleFontColor: "#c5c7cc"
-      });
-      var chart3 = document.getElementById("doughnut-chart").getContext("2d");
-      window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
-      responsive: true,
-      segmentShowStroke: false
-      });
-      var chart4 = document.getElementById("pie-chart").getContext("2d");
-      window.myPie = new Chart(chart4).Pie(pieData, {
-      responsive: true,
-      segmentShowStroke: false
-      });
-      var chart5 = document.getElementById("radar-chart").getContext("2d");
-      window.myRadarChart = new Chart(chart5).Radar(radarData, {
-      responsive: true,
-      scaleLineColor: "rgba(0,0,0,.05)",
-      angleLineColor: "rgba(0,0,0,.2)"
-      });
-      var chart6 = document.getElementById("polar-area-chart").getContext("2d");
-      window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
-      responsive: true,
-      scaleLineColor: "rgba(0,0,0,.2)",
-      segmentShowStroke: false
-      });
-    };
-      </script>	
-    <!-- <a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
-    <!-- Partials -->
-    <% include partials/modal-addtocartproduct %> <% include
-    partials/modal-quickviewmodal %> <% include partials/modal-videoproduct %>
-    <% include partials/modal-subscribegood %> <% include
-    partials/modal-newsletter %> <% include partials/script %>
-  </body>
+            <footer>
+            </footer>
+            <script src="/admin/js/jquery-1.11.1.min.js"></script>
+            <script src="/admin/js/bootstrap.min.js"></script>
+            <script src="/admin/js/chart.min.js"></script>
+            <script src="/admin/js/chart-data.js"></script>
+            <script src="/admin/js/easypiechart.js"></script>
+            <script src="/admin/js/easypiechart-data.js"></script>
+            <script src="/admin/js/bootstrap-datepicker.js"></script>
+            <script src="/admin/js/custom.js"></script>
+            <script>
+                window.onload = function() {
+                    var chart1 = document.getElementById("line-chart").getContext("2d");
+                    window.myLine = new Chart(chart1).Line(lineChartData, {
+                        responsive: true,
+                        scaleLineColor: "rgba(0,0,0,.2)",
+                        scaleGridLineColor: "rgba(0,0,0,.05)",
+                        scaleFontColor: "#c5c7cc"
+                    });
+                    var chart2 = document.getElementById("bar-chart").getContext("2d");
+                    window.myBar = new Chart(chart2).Bar(barChartData, {
+                        responsive: true,
+                        scaleLineColor: "rgba(0,0,0,.2)",
+                        scaleGridLineColor: "rgba(0,0,0,.05)",
+                        scaleFontColor: "#c5c7cc"
+                    });
+                    var chart3 = document.getElementById("doughnut-chart").getContext("2d");
+                    window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
+                        responsive: true,
+                        segmentShowStroke: false
+                    });
+                    var chart4 = document.getElementById("pie-chart").getContext("2d");
+                    window.myPie = new Chart(chart4).Pie(pieData, {
+                        responsive: true,
+                        segmentShowStroke: false
+                    });
+                    var chart5 = document.getElementById("radar-chart").getContext("2d");
+                    window.myRadarChart = new Chart(chart5).Radar(radarData, {
+                        responsive: true,
+                        scaleLineColor: "rgba(0,0,0,.05)",
+                        angleLineColor: "rgba(0,0,0,.2)"
+                    });
+                    var chart6 = document.getElementById("polar-area-chart").getContext("2d");
+                    window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+                        responsive: true,
+                        scaleLineColor: "rgba(0,0,0,.2)",
+                        segmentShowStroke: false
+                    });
+                };
+            </script>
+            <!-- <a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
+            <!-- Partials -->
+            <% include partials/modal-addtocartproduct %>
+                <% include
+    partials/modal-quickviewmodal %>
+                    <% include partials/modal-videoproduct %>
+                        <% include partials/modal-subscribegood %>
+                            <% include
+    partials/modal-newsletter %>
+                                <% include partials/script %>
+</body>
+
 </html>
