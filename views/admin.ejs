@@ -177,7 +177,7 @@
                                             <ul class="dropdown-settings">
                                                 <li>
                                                     <a href="#">
-                                                        <em class="fa fa-cog"></em> Settings 1
+                                                        <em class="fa fa-cog""></em> Settings 1
                                                     </a>
                                                 </li>
                                                 <li class="divider"></li>
@@ -207,6 +207,32 @@
                 </div>
             </div>
             <!--/.row-->
+            <div class="data" style = "display: none;" > 
+                <tbody>
+                    <% var data_ct = [] %>
+                    <% for(var i = 0; i< 12; i++){ %> 
+                    <td>
+                        Doanh thu tháng:
+                        <%= 1 + i %>
+                    </td>
+                    <% var dt = 0 %>
+                    <% order.forEach(function(o){ %>
+                        <% if(i == o.date.getMonth()){ %>
+                            <% dt = dt + o.cart.totalPrice %>
+                        <% } %>
+                    <% }) %>
+                    <% data_ct.push(dt) %>
+                    <td>
+                        <%= dt %>.000 VND
+                    </td>
+                    <% } %>
+                    <td>
+                        <input type = "text" id = "data-bd" value = <%= data_ct %> >
+                    </td>
+        
+                    </tbody>
+            </div>
+            
 
             <div class="row">
                 <div class="col-xs-6 col-md-3">
@@ -528,12 +554,37 @@
         <script src="/admin/js/jquery-1.11.1.min.js"></script>
         <script src="/admin/js/bootstrap.min.js"></script>
         <script src="/admin/js/chart.min.js"></script>
-        <script src="/admin/js/chart-data.js"></script>
+        <!-- <script src="/admin/js/chart-data.js"></script> -->
         <script src="/admin/js/easypiechart.js"></script>
         <script src="/admin/js/easypiechart-data.js"></script>
         <script src="/admin/js/bootstrap-datepicker.js"></script>
         <script src="/admin/js/custom.js"></script>
         <script>
+            function myfs() {
+                var tt = []
+                var a = document.getElementById("data-bd").value.split(",")
+                for(var i = 0; i< 12; i++){
+                    tt.push(a[i]*1000)
+                }
+                return tt
+            }
+            var lineChartData = {
+                labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4 ", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+                datasets: [{
+                        label: "My Second dataset",
+                        fillColor: "rgba(48, 164, 255, 0.2)",
+                        strokeColor: "rgba(48, 164, 255, 1)",
+                        pointColor: "rgba(48, 164, 255, 1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(48, 164, 255, 1)",
+                        data: myfs()
+                            //data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                    }
+
+                ]
+
+            }
             window.onload = function() {
                 var chart1 = document.getElementById("line-chart").getContext("2d");
                 window.myLine = new Chart(chart1).Line(lineChartData, {
@@ -541,35 +592,6 @@
                     scaleLineColor: "rgba(0,0,0,.2)",
                     scaleGridLineColor: "rgba(0,0,0,.05)",
                     scaleFontColor: "#c5c7cc"
-                });
-                var chart2 = document.getElementById("bar-chart").getContext("2d");
-                window.myBar = new Chart(chart2).Bar(barChartData, {
-                    responsive: true,
-                    scaleLineColor: "rgba(0,0,0,.2)",
-                    scaleGridLineColor: "rgba(0,0,0,.05)",
-                    scaleFontColor: "#c5c7cc"
-                });
-                var chart3 = document.getElementById("doughnut-chart").getContext("2d");
-                window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
-                    responsive: true,
-                    segmentShowStroke: false
-                });
-                var chart4 = document.getElementById("pie-chart").getContext("2d");
-                window.myPie = new Chart(chart4).Pie(pieData, {
-                    responsive: true,
-                    segmentShowStroke: false
-                });
-                var chart5 = document.getElementById("radar-chart").getContext("2d");
-                window.myRadarChart = new Chart(chart5).Radar(radarData, {
-                    responsive: true,
-                    scaleLineColor: "rgba(0,0,0,.05)",
-                    angleLineColor: "rgba(0,0,0,.2)"
-                });
-                var chart6 = document.getElementById("polar-area-chart").getContext("2d");
-                window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
-                    responsive: true,
-                    scaleLineColor: "rgba(0,0,0,.2)",
-                    segmentShowStroke: false
                 });
             };
         </script>
@@ -584,5 +606,7 @@
     partials/modal-newsletter %>
                             <% include partials/script %>
 </body>
+
+</html>
 
 </html>
