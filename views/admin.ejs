@@ -58,29 +58,7 @@
                 <li><a href="/admin_dh"><em class="fa fa-calendar">&nbsp;</em> Đơn hàng</a></li>
                 <li><a href="/admin_kh"><em class="fa fa-bar-chart">&nbsp;</em> Khách hàng</a></li>
                 <li><a href="/admin_dssp"><em class="fa fa-toggle-off">&nbsp;</em> Danh sách sản phẩm</a></li>
-                <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
-                <li class="parent ">
-                    <a data-toggle="collapse" href="#sub-item-1">
-                        <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-                    </a>
-                    <ul class="children collapse" id="sub-item-1">
-                        <li>
-                            <a class="" href="#">
-                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
-                            </a>
-                        </li>
-                        <li>
-                            <a class="" href="#">
-                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
-                            </a>
-                        </li>
-                        <li>
-                            <a class="" href="#">
-                                <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="/create-sp"><em class="fa fa-clone">&nbsp;</em> Thêm sản phẩm</a></li>
                 <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
             </ul>
         </div>
@@ -233,7 +211,19 @@
                     </tbody>
             </div>
             
+        <div>
+            <p>Khách khàng có tổng doanh thu trên 1 triêu:</p>
+            <% var dt = 0 %>
+            <% for (var i = 0; i < order.length; i++){ %>
+                    <% var x = order[i].user %>
+                    <% for (var j = 0; i < order.length; j++){ %>
+                    <% if(x == order[j].user) %>
+                    <% dt = dt + order[j].cart.totalPrice %>
 
+
+                        <% } %>
+                                        <% } %>
+        </div>
             <div class="row">
                 <div class="col-xs-6 col-md-3">
                     <div class="panel panel-default">
@@ -272,7 +262,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="panel panel-default chat">
+                    <!-- <div class="panel panel-default chat">
                         <div class="panel-heading">
                             Chat
                             <ul class="pull-right panel-settings panel-button-tab-right">
@@ -340,8 +330,8 @@
                   <button class="btn btn-primary btn-md" id="btn-chat">Send</button>
               </span></div>
                         </div>
-                    </div>
-                    <div class="panel panel-default">
+                    </div> -->
+                    <!-- <div class="panel panel-default">
                         <div class="panel-heading">
                             To-do List
                             <ul class="pull-right panel-settings panel-button-tab-right">
@@ -451,12 +441,12 @@
                   <button class="btn btn-primary btn-md" id="btn-todo">Add</button>
               </span></div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!--/.col-->
 
 
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="panel panel-default ">
                         <div class="panel-heading">
                             Timeline
@@ -540,11 +530,11 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!--/.col-->
-                <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                     <p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-                </div>
+                </div> -->
             </div>
             <!--/.row-->
         </div>
